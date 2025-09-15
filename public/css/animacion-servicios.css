@@ -1,0 +1,96 @@
+/* animacion para el video */
+@keyframes videoSlideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.anim-video-header {
+    animation: videoSlideInRight 1.4s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+/* animacion para el texto del encabezado */
+@keyframes headerSlideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.anim-header {
+    animation: headerSlideInLeft 1.4s cubic-bezier(0.4,0,0.2,1) both;
+}
+.anim-header-delay {
+    animation: headerSlideInLeft 1.4s cubic-bezier(0.4,0,0.2,1) both;
+    animation-delay: 0.23s;
+}
+
+/* animacion para las imagenes */
+@keyframes imgSlideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes imgSlideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.anim-img-left {
+    animation: imgSlideInLeft 1.4s cubic-bezier(0.4,0,0.2,1) both;
+}
+.anim-img-right {
+    animation: imgSlideInRight 1.4s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+/* animacion para el contenido de las cards (h3, p, ul) */
+@keyframes cardContentFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-card-content {
+    animation: cardContentFadeIn 1.2s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+.anim-card-content-right {
+    animation: cardContentFadeIn 1.2s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+/* animacion de las cards al hacer scroll */
+.card-anim-hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s, transform 0.6s;
+}
+.card-anim-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

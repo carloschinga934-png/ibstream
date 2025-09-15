@@ -1,0 +1,90 @@
+/* Sección */
+.influencers-section {
+  background: #000000;
+  color: #fff;
+  padding: 50px 30px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Título fluido */
+.influencers-section .title {
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  margin-bottom: 40px;
+  font-weight: 900;
+  color: #56FF00; /* verde kick */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Splide */
+.splide {
+  width: 100%;
+}
+
+.splide__track {
+  overflow: visible; /* para que la sombra de la card no se recorte */
+}
+
+.splide__slide {
+  background: #1E1E1E;
+  border-radius: 12px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5rem; /* pequeño gutter interno (el gap real lo maneja Splide) */
+}
+
+/* Card */
+.card {
+  background: #111;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+}
+
+/* Imagen con proporción, sin alturas fijas */
+.card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;  /* controla el alto sin fijarlo en px */
+  object-fit: cover;
+  display: block;
+}
+
+/* Banda inferior */
+.card .name {
+  background: #56FF00;
+  color: #1E1E1E;
+  padding: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-top: auto;
+  line-height: 1.2;
+}
+
+/* Responsividad ligera (ya no dependemos de alturas fijas) */
+@media (max-width: 1024px) {
+  .influencers-section { padding: 40px 20px; }
+}
+
+@media (max-width: 768px) {
+  .influencers-section .title { margin-bottom: 20px; }
+  .card .name { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .influencers-section { padding: 30px 15px; }
+}

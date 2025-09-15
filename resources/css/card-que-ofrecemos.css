@@ -1,0 +1,104 @@
+/* animacion de brillo para el boton */
+.card-btn {
+	position: relative;
+	overflow: hidden;
+}
+
+.card-btn::before {
+	content: "";
+	position: absolute;
+	top: 0; left: -75%;
+	width: 50%; height: 100%;
+	background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.0) 100%);
+	transform: skewX(-25deg);
+	pointer-events: none;
+	z-index: 1;
+	animation: shine 1s linear infinite;
+}
+
+@keyframes shine {
+	0% { left: -75%; }
+	100% { left: 120%; }
+}
+.card-que-ofrecemos .card-title {
+	color: #00ff50 !important;
+}
+
+/* card principal */
+.card-que-ofrecemos {
+	background: #111;
+	border-radius: 1.25rem;
+	box-shadow: 0 2px 12px rgba(0, 255, 80, 0.10);
+	padding: 2rem 1.5rem;
+	max-width: 340px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: box-shadow 0.3s, transform 0.3s;
+	opacity: 0;
+	transform: translateY(30px);
+	animation: cardFadeIn 0.8s cubic-bezier(.77,0,.18,1) forwards;
+	margin: 0 auto;
+}
+
+@keyframes cardFadeIn {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.card-que-ofrecemos:hover {
+			box-shadow: 0 8px 32px rgba(0, 255, 80, 0.25);
+			transform: translateY(-6px);
+}
+
+/* imagen centrada */
+.card-img {
+	height: 120px;
+	object-fit: contain;
+	margin-bottom: 0.5rem;
+}
+
+/* titulo de la card */
+.card-title {
+	font-size: 1.25rem;
+	font-weight: 700;
+	margin-bottom: 0.3rem;
+	color: #00ff50 !important;
+	text-align: center;
+}
+
+/* descripcion de la card */
+.card-description {
+	color: #e0e7ff;
+	margin-bottom: 0.7rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	min-height: 60px;
+}
+
+/* boton de la card */
+.card-btn {
+	display: inline-block;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.5rem;
+	background: #00ff50;
+	color: #111;
+	font-weight: 600;
+	text-decoration: none;
+	font-size: 1rem;
+	border: none;
+	transition: background 0.2s, color 0.2s;
+}
+
+/* hover del boton */
+.card-btn:hover {
+	background: #00e040;
+	color: #fff;
+}
+
+.card-btn:hover::after {
+	transform: scaleX(1);
+}

@@ -1,0 +1,70 @@
+:root { --header-h: 140px; }
+@media (max-width: 992px){ :root { --header-h: 160px; } }
+@media (max-width: 576px){ :root { --header-h: 180px; } }
+
+/* HERO sin huecos */
+.portada{
+  position: relative;
+  width: 100vw;
+  height: auto;
+  min-height: 120vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;        /* centra vertical */
+  justify-content: flex-start;/* texto a la izquierda */
+  padding: 0;                 /* 👈 importante: sin padding */
+  box-sizing: border-box;
+}
+
+.portada__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;         /* 👈 ocupa siempre todo el alto */
+  object-fit: cover;    /* 👈 asegura que se recorte sin dejar huecos */
+  object-position: center;
+  z-index: -2;
+}
+
+
+/* Degradado más oscuro a la izquierda (contraste para el texto) */
+.portada::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(90deg,
+    rgba(0,0,0,0.8) 0%,
+    rgba(0,0,0,0.35) 40%,
+    rgba(0,0,0,0) 100%
+  );
+  z-index:-1;
+}
+
+/* Texto: desplazamos SOLO el contenido (no el fondo) */
+.portada-content{
+  position: relative;
+  margin-top: calc(var(--header-h) + 150px);  /* 👈 separa del header fijo */
+  margin-left: clamp(16px, 4vw, 48px);      /* aire a la izquierda */
+  max-width: 600px;
+  color: #fff;
+  text-align: left;
+}
+
+.portada-content h1{
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 20px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+}
+
+.portada-content p{
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 0 25px;
+  color: #f1f1f1;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.8);
+}
+
+/* ⚠️ Si tu layout pone margen arriba al main, lo anulamos SOLO cuando el hero va primero */
+.main-content > .portada:first-child{
+  margin-top: calc(-1 * var(--header-h));   /* saca el hueco de arriba */
+}
